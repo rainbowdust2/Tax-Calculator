@@ -1,1 +1,38 @@
 
+<!DOCTYPE html>
+<html>
+  <head><title> Tax Calculator</title>
+  <script type="text/javascript">
+   function getDues() {
+      var dues= "";
+      var income= document.getElementById("txtIncome").value;
+
+      if (income >=0 && income <=27050) {
+         dues= income * .15;
+         document.paid.dues.value = dues.toFixed(2);
+      }
+      else if(income >=27050 && income <=65550) {
+         dues= 4057.50 + (.275 * (income - 27050));
+         document.paid.dues.value = dues.toFixed(2);
+      }
+      else if(income >=65550 && income <=136750) {
+         dues= 14654.00 + (.305 * (income - 65550));
+         document.paid.dues.value = dues.toFixed(2);
+      }
+      else if(income >=136750 && income <=297350) {
+         dues= 36361.00 + (.355 * (income - 136750));
+         document.paid.dues.value = dues.toFixed(2);
+      }
+      else if(income >=297350) {
+         dues= 93374.00 + (.391 * (income - 297350));
+         document.paid.dues.value = dues.toFixed(2);
+      }
+   }
+  </script>
+  </head><body> <p>Tax Calculator</p>
+  <form name="paid">
+  <p><input type="text" id="txtIncome" size="8"> Input your income</p>
+  <p><input type="button" value="Calculate Tax" onClick="getDues()"></p>
+  <p><input type="text" name="dues"> Tax to be paid</p>
+  </form>
+</body></html>
